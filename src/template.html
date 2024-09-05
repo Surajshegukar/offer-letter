@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Offer Letter</title>
+  <link href="https://fonts.googleapis.com/css2?family=Arial:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f4f4f9;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 10px;
+    }
+    .header h1 {
+      font-size: 24px;
+      color: #003f7f;
+    }
+    .header img {
+      width: 80px;
+    }
+    .company-info {
+      text-align: right;
+      font-size: 14px;
+    }
+    .offer-title {
+      text-align: center;
+      margin: 20px 0;
+      font-size: 20px;
+      font-weight: bold;
+      text-decoration: underline;
+    }
+    .offer-details {
+      margin-bottom: 20px;
+      line-height: 1.8;
+    }
+    .offer-details p {
+      margin: 0;
+    }
+    .content {
+      line-height: 1.8;
+    }
+    .signature {
+      margin-top: 40px;
+    }
+    .signature p {
+      margin: 0;
+    }
+    .signature .founder {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 40px;
+    }
+    .footer img {
+      width: 60px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="header">
+      <div class="logo">
+        <h1>InternDev Pvt Ltd</h1>
+      </div>
+      <div class="company-info">
+        <p>Pune, Maharashtra</p>
+        <p>India</p>
+        <p>9422144467</p>
+        <p>interndev65@gmail.com</p>
+        <p>LinkedIn: InternDev Pvt Ltd</p>
+      </div>
+    </div>
+
+    <div class="offer-title">
+      Offer Letter
+    </div>
+
+    <div class="offer-details">
+      <p>Date: {{Date}}</p>
+      <p>ID: {{Intern ID}}</p>
+      <p>Name: {{Name}}</p>
+      <p>Duration: {{Duration}}</p>
+    </div>
+
+    <div class="content">
+      <p>Dear {{Name}},</p>
+      <p>Welcome to InternDev Pvt Ltd,</p>
+
+      <p>Congratulations! We are delighted to make you an offer as a {{Domain}} Intern.</p>
+
+      <p>This letter is to confirm your selection as {{Domain}} Intern at InternDev Pvt Ltd. We welcome you for the same effective from {{Start Date}} till {{End Date}}.</p>
+
+      <p>This internship is observed by InternDev Pvt Ltd as being a learning opportunity for you spanning a duration of {{Duration}}.</p>
+
+      <p>In essence, your internship will embrace orientation and give emphasis on learning new skills with a deeper understanding of concepts through hands-on application of the knowledge you gained as an intern. Our team is confident that you will acknowledge your obligation to perform all work allocated to you to the best of your ability within the lawful and reasonable direction given to you.</p>
+
+      <p>We look forward to a worthwhile and fruitful association which will make you equipped for future projects, wishing you the most enjoyable and truly meaningful internship program experience you.</p>
+
+      <p>Thank you</p>
+
+      <p>Team InternDev Pvt Ltd</p>
+    </div>
+
+    <div class="signature">
+      <p>With best regards,</p>
+      <p class="founder">Gaurav Bhoi, Founder</p>
+    </div>
+
+    <div class="footer">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Wikimedia-logo-black-and-white.svg/1024px-Wikimedia-logo-black-and-white.svg.png" alt="Company Logo">
+    </div>
+  </div>
+
+</body>
+</html>
