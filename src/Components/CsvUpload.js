@@ -83,7 +83,7 @@ const OfferLetterApp = () => {
             <option value="-1">Choose an option</option>
             {csvData.map((person, index) => (
               <option key={index} value={index}>
-                {person.Name}
+                {person["Name"]}
               </option>
             ))}
           </select>
@@ -120,7 +120,7 @@ const OfferLetterApp = () => {
               ID: <b>{}</b>
             </p>
             <p>
-              Name: <b>{selectedPerson.Name}</b>
+              Name: <b>{selectedPerson["Name"]}</b>
             </p>
             <p>
               Duration: <b>{selectedPerson["Internship Duration"]}</b>
@@ -129,7 +129,7 @@ const OfferLetterApp = () => {
 
           <div className="content">
             <p>
-              Dear <b>{selectedPerson.Name}</b>,
+              Dear <b>{selectedPerson["Name"]}</b>,
             </p>
             <p>Welcome to InternDev Pvt Ltd,</p>
 
