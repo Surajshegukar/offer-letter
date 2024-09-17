@@ -2,9 +2,8 @@ import React, { useState } from "react";
 import Papa from "papaparse";
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
-import { nanoid } from "@reduxjs/toolkit";
-import Image from './download.jpeg'
-import VerifyLogo from './Screenshot_6-9-2024_2574_.jpeg'
+import Image from "./download.jpeg";
+import VerifyLogo from "./Screenshot_6-9-2024_2574_.jpeg";
 
 const OfferLetterApp = () => {
   const [csvData, setCsvData] = useState([]);
@@ -31,7 +30,7 @@ const OfferLetterApp = () => {
       const imgData = canvas.toDataURL("image/png");
 
       // Define A4 size in mm
-      const pdf = new jsPDF('p', 'mm', 'a4');
+      const pdf = new jsPDF("p", "mm", "a4");
 
       // Get the dimensions of the canvas and calculate aspect ratio
       const imgWidth = 210; // A4 width in mm
@@ -41,16 +40,17 @@ const OfferLetterApp = () => {
       let position = 0;
 
       // Add the image data to the PDF
-      pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+      pdf.addImage(imgData, "PNG", 0, position, imgWidth, imgHeight);
       heightLeft -= pageHeight;
 
       // Handle multi-page content
       while (heightLeft >= 0) {
         position = heightLeft - imgHeight;
         pdf.addPage();
-        pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+        pdf.addImage(imgData, "PNG", 0, position, imgWidth, imgHeight);
         heightLeft -= pageHeight;
       }
+      pdf.deletePage(2);
 
       pdf.save(`${selectedPerson.Name}_OfferLetter.pdf`);
     });
@@ -83,7 +83,7 @@ const OfferLetterApp = () => {
             <option value="-1">Choose an option</option>
             {csvData.map((person, index) => (
               <option key={index} value={index}>
-                {person.Name}
+                {person["Name"]}
               </option>
             ))}
           </select>
@@ -95,7 +95,13 @@ const OfferLetterApp = () => {
         <div id="offer-letter" className="container">
           <div className="header mb-4">
             <h1>InternDev Pvt Ltd</h1>
-            <img id="CompanyLogo" src={Image } height={'60px'} width={'20px'} alt="" />
+            <img
+              id="CompanyLogo"
+              src={Image}
+              height={"60px"}
+              width={"20px"}
+              alt=""
+            />
             <div className="company-info">
               <p>Pune, Maharashtra, India</p>
               <p>Phone: 9422144467</p>
@@ -107,17 +113,24 @@ const OfferLetterApp = () => {
           <h2 className="offer-title">Offer Letter</h2>
 
           <div className="offer-details">
-            <p>Date: <b>{new Date().toLocaleDateString()}</b></p>
-            <p>ID: <b>{}</b></p>
-            <p>Name: <b>{selectedPerson.Name}</b></p>
-            <p>Duration: <b>{selectedPerson["Internship Duration"]}</b></p>
-            
-            
-            
+            <p>
+              Date: <b>{new Date().toLocaleDateString()}</b>
+            </p>
+            <p>
+              ID: <b>{}</b>
+            </p>
+            <p>
+              Name: <b>{selectedPerson["Name"]}</b>
+            </p>
+            <p>
+              Duration: <b>{selectedPerson["Internship Duration"]}</b>
+            </p>
           </div>
 
           <div className="content">
-            <p>Dear <b>{selectedPerson.Name}</b>,</p>
+            <p>
+              Dear <b>{selectedPerson["Name"]}</b>,
+            </p>
             <p>Welcome to InternDev Pvt Ltd,</p>
 
             <p>
@@ -126,18 +139,31 @@ const OfferLetterApp = () => {
             </p>
 
             <p>
-              This letter is to confirm your selection as a <b>{selectedPerson["Preferred Internship Domain"]} Intern</b> at <b>InternDev Pvt Ltd. </b>
-              We welcome you for the same effective from </p>
-            <p>
-            This internship is observed by InternDev Pvt Ltd as being a learning opportunity for you spanning a duration of <b>{selectedPerson["Internship Duration"]}</b>.
+              This letter is to confirm your selection as a{" "}
+              <b>{selectedPerson["Preferred Internship Domain"]} Intern</b> at{" "}
+              <b>InternDev Pvt Ltd. </b>
+              We welcome you for the same effective from{" "}
+              {selectedPerson["Start Date"]} till {selectedPerson["End Date"]}
             </p>
             <p>
-            In essence, your internship will embrace orientation and give emphasis on learning new skills with a deeper understanding of concepts through hands-on application of the knowledge you gained as an intern. Our team is confident that you will acknowledge your obligation to perform all work allocated to you to the best of your ability within the lawful and reasonable direction given to you.
+              This internship is observed by InternDev Pvt Ltd as being a
+              learning opportunity for you spanning a duration of{" "}
+              <b>{selectedPerson["Internship Duration"]}</b>.
+            </p>
+            <p>
+              In essence, your internship will embrace orientation and give
+              emphasis on learning new skills with a deeper understanding of
+              concepts through hands-on application of the knowledge you gained
+              as an intern. Our team is confident that you will acknowledge your
+              obligation to perform all work allocated to you to the best of
+              your ability within the lawful and reasonable direction given to
+              you.
             </p>
 
             <p>
-            We look forward to a worthwhile and fruitful association which will make you equipped for future projects, wishing you the most enjoyable and truly meaningful internship program experience you.
-
+              We look forward to a worthwhile and fruitful association which
+              will make you equipped for future projects, wishing you the most
+              enjoyable and truly meaningful internship program experience you.
             </p>
             <p>Thank you</p>
             <p>Team InternDev Pvt Ltd</p>
@@ -148,7 +174,6 @@ const OfferLetterApp = () => {
             <p className="founder">Gaurav Bhoi, Founder</p>
             <img src={VerifyLogo} className="VerfiedLogo" alt="" />
           </div>
-
         </div>
       )}
 
@@ -156,7 +181,7 @@ const OfferLetterApp = () => {
       {selectedPerson && (
         <button
           onClick={handleDownloadPdf}
-          className="mt-4 p-2 bg-blue-500 text-white rounded"
+          className="mt-4 p-2 bg-blue-500 text-white rounded absolute top-12 left-1/2"
         >
           Download Offer Letter as PDF
         </button>
@@ -192,6 +217,7 @@ const OfferLetterApp = () => {
             top:46px;
             right:370px;
             width:60px;
+            margin-left:100px;
         }
         .header {
           display: flex;
@@ -213,7 +239,7 @@ const OfferLetterApp = () => {
         }
         .offer-title {
           text-align: center;
-          margin: 120px 0;
+          margin: 70px 0;
           font-size: 20px;
           font-weight: bold;
           text-decoration: none;
