@@ -3,6 +3,7 @@ import Papa from "papaparse";
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
 import CompanyLogo from "./download.jpeg";
+import VerifyLogo from "./Screenshot_6-9-2024_2574_.jpeg";
 
 const CompletionLetter = () => {
   const [csvData, setCsvData] = useState([]);
@@ -169,11 +170,12 @@ const CompletionLetter = () => {
               <p className="font-bold">Gaurav Bhoi, Founder</p>
             </div>
 
-            <div className="footer mt-8 text-center">
+            <div className="footer mt-8 text-end">
               <img
-                src="path_to_logo.png"
+                src={VerifyLogo}
                 alt="Company Stamp"
-                className="w-16 mx-auto"
+                id="VerifyLogo"
+                className=""
               />
             </div>
           </div>
@@ -205,6 +207,12 @@ const CompletionLetter = () => {
                     position: relative;
                     right: -63%;
                     bottom: 72px;
+                }
+                #VerfiedLogo{
+                    position:relative;
+                    bottom:50px;
+                    height:80px;
+                    left:550px
                 }
                 .section-2{
                     position: relative;

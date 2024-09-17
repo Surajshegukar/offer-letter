@@ -143,6 +143,7 @@ const OfferLetterApp = () => {
               <b>{selectedPerson["Preferred Internship Domain"]} Intern</b> at{" "}
               <b>InternDev Pvt Ltd. </b>
               We welcome you for the same effective from{" "}
+              {selectedPerson["Start Date"]} till {selectedPerson["End Date"]}
             </p>
             <p>
               This internship is observed by InternDev Pvt Ltd as being a
@@ -216,6 +217,7 @@ const OfferLetterApp = () => {
             top:46px;
             right:370px;
             width:60px;
+            margin-left:100px;
         }
         .header {
           display: flex;
@@ -237,7 +239,7 @@ const OfferLetterApp = () => {
         }
         .offer-title {
           text-align: center;
-          margin: 120px 0;
+          margin: 70px 0;
           font-size: 20px;
           font-weight: bold;
           text-decoration: none;
