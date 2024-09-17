@@ -3,7 +3,8 @@ import Papa from "papaparse";
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
 import CompanyLogo from "./download.jpeg";
-import VerifyLogo from "./Screenshot_6-9-2024_2574_.jpeg";
+import VerifyLogo from "./Interndev Stamp.png";
+import QRCode from "./qrcode_126108880_58c035a6e7afe762f275b7b59cea3580.png";
 
 const CompletionLetter = () => {
   const [csvData, setCsvData] = useState([]);
@@ -45,6 +46,7 @@ const CompletionLetter = () => {
         pdf.addImage(imgData, "PNG", 0, position, imgWidth, imgHeight);
         heightLeft -= pageHeight;
       }
+      pdf.deletePage(2);
 
       pdf.save(`${selectedPerson.Name}_CompletionLetter.pdf`);
     });
@@ -87,7 +89,7 @@ const CompletionLetter = () => {
 
       {/* Completion Letter Template */}
       {selectedPerson && (
-        <div id="completion-letter" className="container p-6">
+        <div id="completion-letter" className="container">
           <div className="header flex justify-between mb-4">
             <h1 className="text-3xl font-bold text-blue-800">
               InternDev Pvt Ltd
@@ -115,8 +117,8 @@ const CompletionLetter = () => {
 
             <div className="offer-details mb-4">
               <p>
-                <b>Date: </b>
-                {new Date().toLocaleDateString()}
+                <b>Date: </b>10/09/2024
+                {/* {new Date().toLocaleDateString()} */}
               </p>
               <p>
                 <b>Intern ID:</b> {selectedPerson["Intern ID"]}
@@ -170,12 +172,21 @@ const CompletionLetter = () => {
               <p className="font-bold">Gaurav Bhoi, Founder</p>
             </div>
 
-            <div className="footer mt-8 text-end">
+            <div className="footer mt-8 text-end" style={{ marginLeft: "77%" }}>
               <img
                 src={VerifyLogo}
                 alt="Company Stamp"
-                id="VerifyLogo"
-                className=""
+                width={"120px"}
+                height={"90px"}
+                className="mb-2"
+              />
+
+              <img
+                src={QRCode}
+                alt="QRCode"
+                width={"90px"}
+                height={"90px"}
+                className="ml-3"
               />
             </div>
           </div>
@@ -186,7 +197,7 @@ const CompletionLetter = () => {
       {selectedPerson && (
         <button
           onClick={handleDownloadPdf}
-          className="mt-4 p-2 bg-blue-500 text-white rounded"
+          className="mt-4 p-2 bg-blue-500 text-white rounded absolute top-12 left-1/2"
         >
           Download Completion Letter as PDF
         </button>
@@ -198,7 +209,8 @@ const CompletionLetter = () => {
                     max-width: 800px;
                     margin: auto;
                     background: #fff;
-                    padding: 20px;
+                    padding: 40px;
+                    padding-bottom:10px;
                     border-radius: 8px;
                     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
                 }
@@ -208,12 +220,7 @@ const CompletionLetter = () => {
                     right: -63%;
                     bottom: 72px;
                 }
-                #VerfiedLogo{
-                    position:relative;
-                    bottom:50px;
-                    height:80px;
-                    left:550px
-                }
+                                
                 .section-2{
                     position: relative;
                     bottom: 75px;
@@ -243,9 +250,7 @@ const CompletionLetter = () => {
                 .signature {
                     font-weight: bold;
                 }
-                .footer img {
-                    width: 60px;
-                }
+                
             `}</style>
     </div>
   );

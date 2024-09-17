@@ -181,7 +181,7 @@ const OfferLetterApp = () => {
       {selectedPerson && (
         <button
           onClick={handleDownloadPdf}
-          className="mt-4 p-2 bg-blue-500 text-white rounded"
+          className="mt-4 p-2 bg-blue-500 text-white rounded absolute top-12 left-1/2"
         >
           Download Offer Letter as PDF
         </button>

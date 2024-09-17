@@ -12,13 +12,21 @@ function App() {
           <Route
             path="/"
             element={
-              <div>
+              <div className="m-10 p-5 ">
                 <p>
-                  <Link to="/offer-letter">Generate Offer Letter</Link>
+                  <Link
+                    className="hover:text-blue-900 hover:pointer"
+                    to="/offer-letter"
+                  >
+                    1. Generate Offer Letter
+                  </Link>
                 </p>
                 <p>
-                  <Link to="/completion-letter">
-                    Generate Completion Letter
+                  <Link
+                    className="hover:text-blue-900 hover:pointer"
+                    to="/completion-letter"
+                  >
+                    2. Generate Completion Letter
                   </Link>
                 </p>
               </div>
