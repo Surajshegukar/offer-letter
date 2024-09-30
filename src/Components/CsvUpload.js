@@ -117,7 +117,7 @@ const OfferLetterApp = () => {
               Date: <b>{new Date().toLocaleDateString()}</b>
             </p>
             <p>
-              ID: <b>{}</b>
+              ID: <b>{selectedPerson["Intern ID"]}</b>
             </p>
             <p>
               Name: <b>{selectedPerson["Name"]}</b>
